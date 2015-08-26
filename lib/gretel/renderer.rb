@@ -14,6 +14,7 @@ module Gretel
       current_class: "current",
       pretext_class: "pretext",
       posttext_class: "posttext",
+      always_show_posttext: false,
       id: nil
     }
 
@@ -187,7 +188,7 @@ module Gretel
 
         html_fragments << fragments.join(options[:separator])
 
-        if options[:posttext].present?
+        if options[:posttext].present? or options[:always_show_posttext]
           html_fragments << content_tag(:span, options[:posttext], class: options[:posttext_class])
         end
 
